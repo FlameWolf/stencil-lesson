@@ -54,23 +54,23 @@ export class AppRoot {
 				<div class="row">
 					<div class="col-10">
 						<div class="position-relative">
-							<img ref={element => this.mainImage = element} class="img-fluid" src="assets/images/scenery.jpg"/>
+							<img ref={element => (this.mainImage = element)} class="img-fluid" src="assets/images/scenery.jpg"/>
 							<div class="position-absolute top-0 start-0 w-100 mt-4 px-2">
 								<div class="d-flex align-items-center mb-2">
 									<div class="highlighted">CSS:</div>
-									<button class="btn btn-primary border border-warning ms-auto" onClick={() => this.resetAll()}>Reset Image</button>
+									<button class="btn btn-primary border border-warning ms-auto" onClick={() => this.resetAll()}>
+										Reset Image
+									</button>
 								</div>
-								<textarea ref={element => this.outputTextarea = element} class="form-control"></textarea>
+								<textarea ref={element => (this.outputTextarea = element)} class="form-control"></textarea>
 							</div>
 						</div>
 					</div>
 					<div class="col-2">
 						<div class="d-flex flex-column justify-content-end">
-							{
-								Object.entries(this.filters).map(([filterName, filterValue]) => {
-									return <range-slider name={`sld-${filterName}`} text={filterName} min={filterValue.min} max={filterValue.max} default={filterValue.default} unit={filterValue.unit} data-filter-function={filterName}/>;
-								})
-							}
+							{Object.entries(this.filters).map(([filterName, filterValue]) => {
+								return <range-slider name={`sld-${filterName}`} text={filterName} min={filterValue.min} max={filterValue.max} default={filterValue.default} unit={filterValue.unit} data-filter-function={filterName}/>;
+							})}
 						</div>
 					</div>
 				</div>
